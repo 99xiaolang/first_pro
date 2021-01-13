@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="d1">
+        <input type="text" v-model = "familyname"><br/>
+        <input type="text" v-model = "monicker"><br/>
+        {{fullName}}
+    </div>
+    <script src="./js/vue.js"></script>
+    <script>
+        let vm = new Vue({
+            el:"#d1",
+            data:{
+                familyname:"郎",
+                monicker:"澳博"
+            },
+            //计算属性写在computed里面-----存在一种缓存机制
+            computed:{
+                //生成一个新的属性
+                fullName(){//为什么不叫方法还叫属性
+                    console.log(0);
+                    //必须使用funcution关键字来操作，但不是函数也不是方法
+                    return this.familyname + this.monicker;//必须有返回值，让属性接收
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

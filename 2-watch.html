@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="d1">
+        <input type="text" v-model = "familyname"><br/>
+        <input type="text" v-model = "monicker"><br/>
+        {{fullName}}
+    </div>
+    <script src="./js/vue.js"></script>
+    <script>
+        //通过data数据的改变，改变结果
+        let vm = new Vue({
+            el:"#d1",
+            data:{
+                familyname:"郎",
+                monicker:"澳博",
+                fullName:"郎澳博"
+            },
+            //监听data数据属性，改变结果
+            watch:{
+                familyname(val){
+                    this.fullName = val + this.monicker;
+                },
+                monicker(val){
+                    this.fullName = this.familyname + val;
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>
